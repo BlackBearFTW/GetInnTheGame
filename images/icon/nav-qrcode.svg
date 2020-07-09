@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #564f42;
+      }
+    </style>
+  </defs>
+  <path id="qrcode-solid" class="cls-1" d="M0,41.857H9.857V32H0Zm3.286-6.571H6.571v3.286H3.286ZM13.143,32v9.857H23V32Zm6.571,6.571H16.429V35.286h3.286ZM0,55H9.857V45.143H0Zm3.286-6.571H6.571v3.286H3.286Zm18.071-3.286H23v6.571H18.071V50.071H16.429V55H13.143V45.143h4.929v1.643h3.286Zm0,8.214H23V55H21.357Zm-3.286,0h1.643V55H18.071Z" transform="translate(0 -32)"/>
+</svg>
