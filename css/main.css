@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
 body,
 html {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .bg-main {
@@ -12,9 +15,31 @@ html {
     background-color: #564f42 !important;
 }
 
+.font-regular {
+    font-weight: 400 !important;
+}
+
+.font-medium {
+    font-weight: 500 !important;
+}
+
+.font-semibold {
+    font-weight: 600 !important;
+}
+
+.font-bold {
+    font-weight: 700 !important;
+}
+
+
 /*  Controls nav menu style */
 .main-menu {
     height: 60px !important;
     box-shadow: 0px -10px 15px 0px rgba(0, 0, 0, 0.25) !important;
     border-radius: 8px 8px 0px 0px !important;
+}
+
+
+.prof-img {
+    border-radius: 100% !important;
 }
