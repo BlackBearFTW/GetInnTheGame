@@ -25,7 +25,7 @@ if (isset($_POST['iUserID']) && is_numeric($_POST['iUserID'])) {
     }
 
 
-    if ($stmt = mysqli_prepare($link, "SELECT img_path FROM badge WHERE badge_id IN (SELECT badge_id FROM challenge_status WHERE user_id = ? AND status = 'COMPLETED')")) {
+    if ($stmt = mysqli_prepare($link, "SELECT img_path FROM badge WHERE rank = 0 AND badge_id IN (SELECT badge_id FROM challenge_status WHERE user_id = ? AND status = 'COMPLETED')")) {
 
         /* bind parameters for markers */
         mysqli_stmt_bind_param($stmt, "i", $iUserID);
@@ -41,7 +41,7 @@ if (isset($_POST['iUserID']) && is_numeric($_POST['iUserID'])) {
         }
     }
 
-    if ($stmt = mysqli_prepare($link, "SELECT img_path FROM badge WHERE badge_id NOT IN (SELECT badge_id FROM challenge_status WHERE user_id = ? AND status != 'COMPLETED')")) {
+    if ($stmt = mysqli_prepare($link, "SELECT img_path FROM badge WHERE rank = 0 AND badge_id NOT IN (SELECT badge_id FROM challenge_status WHERE user_id = ? AND status != 'COMPLETED')")) {
 
         /* bind parameters for markers */
         mysqli_stmt_bind_param($stmt, "i", $iUserID);

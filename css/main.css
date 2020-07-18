@@ -9,17 +9,20 @@ html {
 
 ::-webkit-scrollbar {
     width: 0px;
-    /* Remove scrollbar space */
     background: transparent;
-    /* Optional: just make scrollbar invisible */
 }
 
-.inverted {
-    filter: invert(100%);
+.prof-img {
+    border-radius: 100% !important;
 }
 
 .rounded {
     border-radius: 8px !important;
+}
+
+.not-completed {
+    opacity: 0.5 !important;
+    background-color: #AFAFAF !important;
 }
 
 .bg-main {
@@ -72,15 +75,10 @@ html {
 }
 
 .fas {
-    color: #888;
+    color: #564f42;
     font-size: 2rem;
 }
 
 .active>.fas {
     color: #f2932e;
-}
-
-
-.prof-img {
-    border-radius: 100% !important;
 }

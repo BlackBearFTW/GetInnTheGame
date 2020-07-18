@@ -54,11 +54,11 @@ if ($stmt = mysqli_prepare($link, "SELECT firstname, lastname, company_name FROM
 
     <!-- LOGOUT / PROFILE IMAGE / SETTINGS -->
     <div class="row mt-3">
-      <div class="col-3"></div>
-      <div class="col text-center">
+      <div class="col-3 text-left"><img src="/images/icons/logout.svg" class="mt-3 ml-3" alt=""></div>
+      <div class="col">
         <img src="<?php echo $sProfileImgPath; ?>" alt="" class="img-fluid mx-auto mt-3 prof-img">
       </div>
-      <div class="col-3"></div>
+      <div class="col-3 text-right"><img src="/images/icons/settings.svg" class="mt-3 mr-3" alt=""></div>
     </div>
 
     <!-- NAME / COMPANY / POINTS DATA -->
@@ -98,7 +98,7 @@ if ($stmt = mysqli_prepare($link, "SELECT firstname, lastname, company_name FROM
     badgeDIV.innerHTML = '';
     for (let x in val.badges) {
 
-      bCompleted = (val.badges[x].completed == true) ? 'bg-main' : 'bg-second';
+      bCompleted = (val.badges[x].completed == true) ? 'bg-main' : 'not-completed';
       badgeDIV.innerHTML += '<div class="col pb-3"><img src="/images/badges/' + val.badges[x].img_path + '" class="img-fluid p-2 rounded ' + bCompleted + '"></div>';
     }
   }
