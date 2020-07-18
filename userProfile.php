@@ -55,7 +55,7 @@ if ($stmt = mysqli_prepare($link, "SELECT firstname, lastname, company_name FROM
     <!-- LOGOUT / PROFILE IMAGE / SETTINGS -->
     <div class="row mt-3">
       <div class="col-3"></div>
-      <div class="col">
+      <div class="col text-center">
         <img src="<?php echo $sProfileImgPath; ?>" alt="" class="img-fluid mx-auto mt-3 prof-img">
       </div>
       <div class="col-3"></div>
@@ -64,35 +64,46 @@ if ($stmt = mysqli_prepare($link, "SELECT firstname, lastname, company_name FROM
     <!-- NAME / COMPANY / POINTS DATA -->
     <div class="row">
       <div class="col-2"></div>
-      <div class="col text-center">
-        <h3 class="mt-2 mb-0 font-bold"><?php echo $sFullName; ?></h3>
-        <h4 class="font-regular mb-0"><?php echo $sCompanyName; ?><br>150 Points</h4>
+      <div class="col text-center mb-5">
+        <h3 class="mt-2 mb-0 font-bold" id="userFullName" data-userid="<?php echo $iUserID; ?>"><?php echo $sFullName; ?></h3>
+        <h4 class="font-regular mb-0"><?php echo $sCompanyName; ?><br><span id="point-count">0</span> Points</h4>
       </div>
       <div class="col-2"></div>
     </div>
 
     <!-- BADGES -->
-    <div class="row" id="badges"></div>
+    <div class="row row-cols-3 text-center" id="badges"></div>
 
 
   </div> <!-- END OF CONTAINER -->
 
 </body>
 <script>
-  var badges = document.getElementById('badges');
-  var iUserID = <?php echo $iUserID; ?>
+  let pointCount = document.getElementById('point-count')
+  let badgeDIV = document.getElementById('badges');
+  let iUserID = document.getElementById('userFullName').dataset.userid;
+  let fData = new FormData()
+  fData.append('iUserID', iUserID);
 
   function profileUpdate() {
-    let fData = new FormData()
-    fData.append('iUserID', iUserID);
-
     fetch('/include/fetch-api/profileUpdate.php', {
         method: 'POST',
         body: fData,
-      }).then(response => response.text())
-      .then(val => list.innerHTML = val);
+      }).then(response => response.json())
+      .then(displayResult);
   }
 
+  function displayResult(val) {
+    pointCount.innerHTML = val.pointCount;
+    badgeDIV.innerHTML = '';
+    for (let x in val.badges) {
+
+      bCompleted = (val.badges[x].completed == true) ? 'bg-main' : 'bg-second';
+      badgeDIV.innerHTML += '<div class="col pb-3"><img src="/images/badges/' + val.badges[x].img_path + '" class="img-fluid p-2 rounded ' + bCompleted + '"></div>';
+    }
+  }
+
+
+  setInterval(profileUpdate, 7000);
   document.addEventListener('load', profileUpdate());
-  setInterval(profileUpdate(), 3000);
 </script>

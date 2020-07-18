@@ -1,8 +1,8 @@
 <?php
 
 echo '<nav class="navbar main-menu fixed-bottom navbar-light nav-fill w-100 bg-white ">
-    <a class="nav-link active my-auto" href="#"><img src="/images/icon/nav-profile.svg" class="img-fluid"></a>
-    <a class="nav-link my-auto" href="#"><img src="/images/icon/nav-challenge.svg" class="img-fluid"></a>
-    <a class="nav-link my-auto" href="#"><img src="/images/icon/nav-leaderboard.svg" class="img-fluid"></a>
-    <a class="nav-link my-auto" href="#"><img src="/images/icon/nav-qrcode.svg" class="img-fluid"></a>
+    <a class="nav-link active my-auto" href="#"><i class="fas fa-user"></i></a>
+    <a class="nav-link my-auto" href="#"><i class="fas fa-dice-five"></i></a>
+    <a class="nav-link my-auto" href="#"><i class="fas fa-dice-trophy"></i></a>
+    <a class="nav-link my-auto" href="#"><i class="fas fa-dice-qrcode"></i></a>
 </nav>';
