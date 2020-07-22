@@ -63,12 +63,12 @@ if ($stmt = mysqli_prepare($link, "SELECT firstname, lastname, company_name FROM
 
     <!-- NAME / COMPANY / POINTS DATA -->
     <div class="row">
-      <div class="col-2"></div>
+      <div class="col-1"></div>
       <div class="col text-center mb-5">
         <h3 class="mt-2 mb-0 font-bold" id="userFullName" data-userid="<?php echo $iUserID; ?>"><?php echo $sFullName; ?></h3>
         <h4 class="font-regular mb-0"><?php echo $sCompanyName; ?><br><span id="point-count">0</span> Points</h4>
       </div>
-      <div class="col-2"></div>
+      <div class="col-1"></div>
     </div>
 
     <!-- BADGES -->
@@ -103,7 +103,6 @@ if ($stmt = mysqli_prepare($link, "SELECT firstname, lastname, company_name FROM
     }
   }
 
-
+  profileUpdate();
   setInterval(profileUpdate, 7000);
-  document.addEventListener('load', profileUpdate());
 </script>
