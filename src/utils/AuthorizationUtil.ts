@@ -3,13 +3,13 @@ import bcrypt from 'bcryptjs';
 
 class AuthorizationUtil {
 
-    public static authRole(role: "admin" | "user" | "unknown") {
+    public static authRole(role: "admin" | "user" | "visitor") {
         return (req: express.Request, res: express.Response, next: Function) => {
             if (role == "admin") {
                 if (!req.session.loggedIn || !req.session.admin) return res.redirect("/profile");
             } else if (role == "user") {
                 if (!req.session.loggedIn) return res.redirect("/login");
-            } else if (role === "unknown") {
+            } else if (role === "visitor") {
                 if (req.session.loggedIn) return res.redirect("/profile");
             }
 

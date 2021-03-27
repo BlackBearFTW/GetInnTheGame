@@ -3,7 +3,7 @@ import session from 'express-session';
 import registrationRoute from "./routes/registrationRoute.js";
 import challengeRoute from "./routes/challengeRoute.js";
 import userRoute from "./routes/userRoute.js";
-import genericRoute from "./routes/genericRoute.js";
+import genericRoute from "./routes/generalRoute.js";
 
 
 const app = express();

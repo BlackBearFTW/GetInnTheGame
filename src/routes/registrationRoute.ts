@@ -10,8 +10,11 @@ const userRepository = UserRepository.getInstance();
 const companyRepository = CompanyRepository.getInstance();
 
 router.route("/login")
-    .get(AuthorizationUtil.authRole("unknown"), (req, res) => {
-        res.render('login.ejs');
+    .get(AuthorizationUtil.authRole("visitor"), (req, res) => {
+        res.render('frontpage.ejs', {
+            title: 'login',
+            page: 'login',
+        });
     })
     .post((req, res) => {
         req.session.loggedIn = true;
@@ -26,16 +29,18 @@ router.get("/logout", AuthorizationUtil.authRole("user"), (req, res) => {
 
 
 router.route("/register/:code")
-    .get(AuthorizationUtil.authRole("unknown"), async (req, res) => {
+    .get(AuthorizationUtil.authRole("visitor"), async (req, res) => {
         const company = await companyRepository.getCompanyByToken(req.params.code);
 
         if (company == null) return res.redirect("/login");
 
-        res.render('register.ejs', {
-            company: company.NAME
+        res.render('frontpage.ejs', {
+            title: 'registration',
+            page: 'register',
+            company: company.NAME,
         });
     })
-    .post(AuthorizationUtil.authRole("unknown"), async (req, res) => {
+    .post(AuthorizationUtil.authRole("visitor"), async (req, res) => {
 
         let user = await userRepository.getUserByEmail(req.body.email);
 
@@ -58,8 +63,11 @@ router.route("/register/:code")
     });
 
 
-router.get("/forgot-password", AuthorizationUtil.authRole("unknown"), (req, res) => {
-    res.render('forgot-password.ejs');
+router.get("/forgot-password", AuthorizationUtil.authRole("visitor"), (req, res) => {
+    res.render('frontpage.ejs', {
+        title: 'forgot password',
+        page: 'forgot-password',
+    });
 });
 
 

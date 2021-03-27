@@ -47,7 +47,9 @@
             </div>
             <div class="col">
                 <% if (show) { %>
-                <img src="/svg/settings.svg" class="float-end"  alt="">
+                    <a href="/settings">
+                        <img src="/svg/settings.svg" class="float-end"  alt="">
+                    </a>
                 <% } %>
             </div>
     </div>
@@ -55,7 +57,13 @@
         <h3 class="fw-bold mb-0"><%= user.name %></h3>
         <h6><%= user.company %><br><span><%= user.points %></span> Points</h6>
     </div>
-    <div class="row row-cols-3 text-center"></div>
+    <div class="row row-cols-3 text-center mt-3 mx-1">
+        <% badges.forEach(function(badge){ %>
+            <div class="col mb-3">
+                    <img src="/images/badges/<%= badge.info.img %>" class="img-fluid p-2 <%= badge.completed ? 'completed' : 'not-completed' %>" alt="<%= badge.info.title %>">
+            </div>
+        <% }); %>
+    </div>
 </div>
 
 

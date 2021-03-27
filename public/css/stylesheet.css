@@ -37,3 +37,19 @@ a, .btn-link {
 .nav-link.active > i.fas {
     color: #f2932e;
 }
+
+img.not-completed {
+    opacity: 0.5;
+    background-color: #505050;
+    border-radius: 8px;
+    filter: invert(1);
+}
+
+img.completed {
+    background-color: #f2932e;
+    border-radius: 8px;
+}
+
+.fas:hover {
+    color: #564F42;
+}
