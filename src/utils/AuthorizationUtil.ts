@@ -18,6 +18,17 @@ class AuthorizationUtil {
 
     }
 
+    public static authApi() {
+        return (req: express.Request, res: express.Response, next: Function) => {
+            if (req.headers.authorization === "AuthGITG") {
+                return next();
+            } else {
+                return res.status(403);
+            }
+
+        }
+    }
+
     public static async generateHash(value: string) {
         return await bcrypt.hash(value, 10);
     }

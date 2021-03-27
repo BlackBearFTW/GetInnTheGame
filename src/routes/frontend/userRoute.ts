@@ -1,5 +1,5 @@
 import express from 'express';
-import AuthorizationUtil from "../utils/AuthorizationUtil.js";
+import AuthorizationUtil from "../../utils/AuthorizationUtil.js";
 
 const router = express.Router();
 
@@ -38,7 +38,7 @@ router.get("/profile/:userId?", AuthorizationUtil.authRole("user"), (req, res) =
             },
         ]
     });
-})
+});
 
 router.get("/settings")
 

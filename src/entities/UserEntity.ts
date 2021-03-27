@@ -8,6 +8,8 @@ class UserEntity {
     public COMPANY_ID: number = 0;
     public QR: string = "";
     public PASSWORD: string = "";
+    public VERIFY_TOKEN: string = "";
+    public PASSWORD_RESET_TOKEN = "";
 }
 
 export default UserEntity;

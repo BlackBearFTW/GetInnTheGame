@@ -1,8 +1,8 @@
 import express from 'express';
-import AuthorizationUtil from "../utils/AuthorizationUtil.js";
-import CompanyRepository from "../repositories/CompanyRepository.js";
-import UserRepository from "../repositories/UserRepository.js";
-import UserEntity from "../entities/UserEntity.js";
+import AuthorizationUtil from "../../utils/AuthorizationUtil.js";
+import CompanyRepository from "../../repositories/CompanyRepository.js";
+import UserRepository from "../../repositories/UserRepository.js";
+import UserEntity from "../../entities/UserEntity.js";
 
 const router = express.Router();
 
